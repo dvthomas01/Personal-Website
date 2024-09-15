@@ -245,3 +245,16 @@ scroll-behavior:smooth;
     border-color: #aaa9ad;
     color: white;
 }
+
+.node-btn{
+background-color:#68A063;
+border-color: #68A063;
+color: white;
+}
+
+.express-btn{
+background-color:#34495E;
+border-color: #34495E;
+color: white;
+}
+
