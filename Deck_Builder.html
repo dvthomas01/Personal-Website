@@ -2,63 +2,180 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Yugioh Deck Builder</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Yu-Gi-Oh! Deck Builder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <style>
+      body {
+        background: #FFEDD8;
+      }
+      .project-title {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        color: #7A4F1D;
+      }
+      .project-list {
+        max-width: 700px;
+        margin: 0 auto 2.5rem auto;
+        text-align: center;
+        font-size: 1.2rem;
+        color: #7A4F1D;
+        line-height: 1.6;
+      }
+      .project-list .list-group-item {
+        color: #7A4F1D;
+        text-align: center;
+        background: transparent;
+        border: none;
+        padding: 0.75rem 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+      .project-btns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 2rem;
+      }
+      .project-btns .btn {
+        min-width: 120px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: all 0.2s;
+        opacity: 1 !important;
+      }
+      .project-btns .btn:hover {
+        opacity: 1 !important;
+        filter: none;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
+      }
+      /* Comprehensive hover styles for all button types */
+      .btn:hover,
+      .btn-primary:hover,
+      .btn-secondary:hover,
+      .btn-success:hover,
+      .btn-danger:hover,
+      .btn-warning:hover,
+      .btn-info:hover,
+      .btn-light:hover,
+      .btn-dark:hover,
+      .html-btn:hover,
+      .css-btn:hover,
+      .node-btn:hover,
+      .express-btn:hover {
+        opacity: 1 !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
+      }
+      /* Fix for custom project buttons: keep background and border color on hover, add darken effect */
+      .html-btn {
+        background-color: #e34c26;
+        color: white;
+        font-weight: 600;
+        border: none;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+      }
+      .html-btn:hover, .html-btn:focus {
+        background-color: #c73e1d !important; /* slightly darker orange */
+        color: white !important;
+        border: none;
+        outline: none;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
+      }
+      .css-btn {
+        background-color: #264de4;
+        color: white;
+        font-weight: 600;
+        border: none;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+      }
+      .css-btn:hover, .css-btn:focus {
+        background-color: #1e3a8a !important; /* slightly darker blue */
+        color: white !important;
+        border: none;
+        outline: none;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
+      }
+      .node-btn {
+        background-color: #68a063;
+        color: white;
+        font-weight: 600;
+        border: none;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+      }
+      .node-btn:hover, .node-btn:focus {
+        background-color: #4a7c59 !important; /* slightly darker green */
+        color: white !important;
+        border: none;
+        outline: none;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
+      }
+      .express-btn {
+        background-color: #000000;
+        color: white;
+        font-weight: 600;
+        border: none;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+      }
+      .express-btn:hover, .express-btn:focus {
+        background-color: #333333 !important; /* slightly lighter black */
+        color: white !important;
+        border: none;
+        outline: none;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
+      }
+      .video-container {
+        display: flex;
+        justify-content: center;
+        margin: 2rem auto;
+        max-width: 700px;
+      }
+      .video-container video {
+        max-width: 100%;
+        width: 600px;
+        border-radius: 16px;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+      }
+    </style>
 </head>
 <body>
-<style type="text/css">
-
-body{
-background-color:#FFEDD8;
-}
-
-</style>
-<div class="px-4 pt-5 mb-5 text-center border-bottom">
-    <h1 class="display-4 fw-bold text-body-emphasis project-heading ">Lecture Notes Helper</h1>
-    <div class="col-lg-6 mx-auto">
-        <button type="button" class="btn btn-lg btn-warning mb-4">Javascript</button>
-        <button type="button" class="btn btn-lg html-btn mb-4">HTML</button>
-        <button type="button" class="btn btn-lg css-btn mb-4">CSS</button>
-       <button type="button" class="btn btn-lg node-btn mb-4">Node.js</button>
-        <button type="button" class="btn btn-lg express-btn mb-4">Express.js</button>
-
+  <div class="container py-5">
+    <h1 class="project-title">Yu-Gi-Oh! Deck Builder</h1>
+    <div class="project-btns mb-4">
+      <button type="button" class="btn btn-lg btn-warning">Javascript</button>
+      <button type="button" class="btn btn-lg html-btn">HTML</button>
+      <button type="button" class="btn btn-lg css-btn">CSS</button>
+      <button type="button" class="btn btn-lg node-btn">Node.js</button>
+      <button type="button" class="btn btn-lg express-btn">Express.js</button>
     </div>
-    <div class="col-lg-6 mx-auto">
-      <ul class="list-group list-group-numbered list-group-flush ">
-
-
-  <li class="list-group-item mb-4 div-background">Built a Yu-Gi-Oh! deck builder that allows users to filter
-      and search over 12,000 cards from the Yu-Gi-Oh! API, using criteria like archetype,
-      level, type, name, and attributes.</li>
-  <li class="list-group-item mb-4 div-background">Enabled users to manage their decks
-      by saving favorite cards and removing unwanted ones for a customizable
-      deck-building experience.</li>
-  <li class="list-group-item mb-4 div-background">Integrated an AI-powered chatbot with the OpenAI API to provide users
-      with news on competitive decks, trends, and Yu-Gi-Oh! tournaments.</li>
-    <li class="list-group-item mb-4 div-background">Developed the backend using Node.js and Express.js, ensuring smooth
-        server-side operations and API interactions.</li>
-  <li class="list-group-item mb-4 div-background">Utilized EJS for dynamic templating and Bootstrap for a polished frontend design, with Axios handling efficient HTTP requests to the Yu-Gi-Oh! API.</li>
-
-</ul>
-
+    <ul class="list-group list-group-numbered project-list mb-4">
+      <li class="list-group-item">Built a Yu-Gi-Oh! deck builder that allows users to filter and search over 12,000 cards from the Yu-Gi-Oh! API, using criteria like archetype, level, type, name, and attributes.</li>
+      <li class="list-group-item">Enabled users to manage their decks by saving favorite cards and removing unwanted ones for a customizable deck-building experience.</li>
+      <li class="list-group-item">Integrated an AI-powered chatbot with the OpenAI API to provide users with news on competitive decks, trends, and Yu-Gi-Oh! tournaments.</li>
+      <li class="list-group-item">Developed the backend using Node.js and Express.js, ensuring smooth server-side operations and API interactions.</li>
+      <li class="list-group-item">Utilized EJS for dynamic templating and Bootstrap for a polished frontend design, with Axios handling efficient HTTP requests to the Yu-Gi-Oh! API.</li>
+    </ul>
+    <div class="video-container">
+      <video controls>
+        <source src="projects/deck-vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
-    <div class="col-lg-6 mx-auto">
-    <div class="container video-container">
-    <video controls>
-      <source src="projects/deck-vid.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-
   </div>
-        </div>
-  </div>
-
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

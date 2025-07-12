@@ -3,51 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>Chess Engine</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <style>
+      body {
+        background: #FFEDD8;
+      }
+      .project-title {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        color: #7A4F1D;
+      }
+      .project-tech {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+      .project-list {
+        max-width: 700px;
+        margin: 0 auto 2.5rem auto;
+        text-align: center;
+        font-size: 1.2rem;
+        color: #7A4F1D;
+      }
+      .project-list .list-group-item {
+        color: #7A4F1D;
+        text-align: center;
+        background: transparent;
+        border: none;
+        padding: 0.5rem 0;
+      }
+      .project-media {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+      .project-media video, .project-media img {
+        max-width: 100%;
+        width: 600px;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      }
+      .python-btn {
+        background-color: #ffe066;
+        color: #7A4F1D;
+        font-weight: 600;
+        border: none;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+      }
+      .python-btn:hover, .python-btn:focus {
+        background-color: #e6c84c !important; /* slightly darker yellow */
+        color: #7A4F1D !important;
+        border: none;
+        outline: none;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
+      }
+      @media (max-width: 768px) {
+        .project-title { font-size: 2.2rem; }
+        .project-media video, .project-media img { width: 100%; }
+      }
+    </style>
 </head>
 <body>
-<style type="text/css">
-
-body{
-background-color:#FFEDD8;
-}
-
-</style>
-<div class="px-4 pt-5 mb-5 text-center border-bottom">
-    <h1 class="display-4 fw-bold text-body-emphasis project-heading ">Chess Engine</h1>
-    <div class="col-lg-6 mx-auto">
-        <button type="button" class="btn btn-lg python-btn mb-4">Python</button>
-
-
+  <div class="container py-5">
+    <h1 class="project-title">Chess Engine</h1>
+    <div class="project-tech">
+      <button type="button" class="btn btn-lg python-btn mb-4">Python</button>
     </div>
-    <div class="col-lg-6 mx-auto">
-      <ul class="list-group list-group-numbered list-group-flush ">
-
-
-  <li class="list-group-item mb-4 div-background">This project is a complete chess game with a player vs. player (PvP) mode using Python</li>
-  <li class="list-group-item mb-4 div-background">The game employs the Pygame library to handle graphical elements and game mechanics.</li>
-  <li class="list-group-item mb-4 div-background">Key functionalities include a fully functional chessboard with accurate piece movement, validation of legal moves, and detection of game states such as check and checkmate.</li>
-    <li class="list-group-item mb-4 div-background">The project showcases the integration of game logic and a graphical user interface, highlighting Python’s capabilities for game development.</li>
-</ul>
-
+    <ul class="list-group list-group-numbered project-list mb-4">
+      <li class="list-group-item">Developed a chess engine using Python and the chess library, implementing the minimax algorithm with alpha-beta pruning for efficient move evaluation.</li>
+      <li class="list-group-item">Integrated a graphical user interface using Tkinter, providing an interactive chessboard where users can play against the AI engine.</li>
+      <li class="list-group-item">Implemented move validation and game state management to ensure legal moves and proper game progression.</li>
+      <li class="list-group-item">Added depth-limited search to balance computational efficiency with playing strength, allowing for configurable AI difficulty levels.</li>
+    </ul>
+    <div class="project-media">
+      <video controls>
+        <source src="projects/chess-vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
-        <div class="col-lg-6 mx-auto">
-    <div class="container video-container">
-    <video controls>
-      <source src="projects/chess-vid.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-
   </div>
-            </div>
-  </div>
-
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

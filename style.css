@@ -93,9 +93,14 @@ font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, san
 .svg-img {
   background-color: transparent; /* Ensure the background is transparent */
 }
-.div-background{
-background-color:#FFEDD8;
-width=100%;
+.div-background {
+  background-color: #FFEDD8;
+  width: 100vw;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
 }
 .img-container{
 width:50%;
@@ -181,7 +186,7 @@ opacity:1;
 
 .list-group-item{
 font-size:20px;
-color:#6F4518
+color:#6F4518;
 }
  .img-container {
         width: 100%;
@@ -256,5 +261,245 @@ color: white;
 background-color:#34495E;
 border-color: #34495E;
 color: white;
+}
+
+/* Experience Section Styles */
+.company-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.company-logo-container:hover {
+  transform: scale(1.05);
+}
+
+.company-logo {
+  max-width: 100%;
+  max-height: 350px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.company-logo:hover {
+  transform: scale(1.05);
+}
+
+.experience-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.experience-logo-item {
+  margin: 15px;
+  flex: 0 0 auto;
+}
+
+/* Reduce gap between experience and contact sections */
+#experience {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#contact {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+#contact footer {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Horizontal Layout for Experience Logos */
+@media (min-width: 768px) {
+  .experience-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  
+  .experience-logo-item {
+    flex: 0 0 auto;
+    max-width: calc(20% - 48px);
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 767px) {
+  .experience-logos {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 15px;
+  }
+  
+  .experience-logo-item {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .company-logo {
+    max-width: 400px;
+    max-height: 250px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .experience-logos {
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
+  .experience-logo-item {
+    max-width: calc(25% - 22.5px);
+    min-width: 180px;
+  }
+  
+  .company-logo {
+    max-height: 300px;
+  }
+}
+
+/* Project Tabs Styling */
+.nav-tabs {
+  border-bottom: 3px solid #dee2e6;
+  margin-bottom: 2rem;
+}
+
+.nav-tabs .nav-link {
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 16px 32px;
+  margin-right: 8px;
+  border: 2px solid #dee2e6;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  background-color: #f8f9fa;
+  color: #6c757d;
+  transition: all 0.3s ease;
+  position: relative;
+  min-width: 150px;
+  text-align: center;
+}
+
+.nav-tabs .nav-link:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+  color: #495057;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #ffffff;
+  border-color: #007bff;
+  color: #007bff;
+  border-bottom: 2px solid #ffffff;
+  margin-bottom: -2px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  z-index: 1;
+}
+
+.nav-tabs .nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #ffffff;
+}
+
+/* Tab content styling */
+.tab-content {
+  background-color: #ffffff;
+  border: 2px solid #dee2e6;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 2rem;
+  min-height: 400px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+/* Folder-like appearance */
+.nav-tabs::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #007bff, #28a745, #ffc107, #dc3545);
+  border-radius: 3px 3px 0 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-tabs .nav-link {
+    font-size: 1rem;
+    padding: 10px 16px;
+    min-width: 100px;
+  }
+  
+  .nav-tabs {
+    flex-wrap: wrap;
+  }
+}
+
+/* Footer link styling */
+footer a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 12px 20px;
+  margin: 0 10px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  min-width: 120px;
+  text-align: center;
+}
+
+footer a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  text-decoration: none;
+}
+
+/* Footer container styling */
+footer .container {
+  padding: 2rem 0;
+}
+
+footer h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
