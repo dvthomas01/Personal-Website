@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FitClassifier - AI-Powered Fashion Recognition</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #FFEDD8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .project-hero {
+            background: #7A4F1D;
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+        }
+        
+        .project-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .project-subtitle {
+            font-size: 1.3rem;
+            text-align: center;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .project-tabs {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .nav-tabs {
+            border: none;
+            background: #f8f9fa;
+            border-radius: 15px 15px 0 0;
+            padding: 0.5rem 0.5rem 0;
+            justify-content: center;
+        }
+        
+        .nav-tabs .nav-link {
+            border: none;
+            border-radius: 10px;
+            margin: 0 0.25rem;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            color: #7A4F1D;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            background: rgba(122, 79, 29, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .nav-tabs .nav-link.active {
+            background: #7A4F1D;
+            color: white;
+            box-shadow: 0 4px 15px rgba(122, 79, 29, 0.3);
+        }
+        
+        .tab-content {
+            padding: 2.5rem;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #7A4F1D;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .architecture-diagram {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .tech-item {
+            background: #7A4F1D;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(122, 79, 29, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .demo-video {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 2rem 0;
+        }
+        
+        .performance-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #7A4F1D;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-label {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 600;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .gallery-caption {
+            padding: 1rem;
+            background: white;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+        
+        .project-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .project-btns .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .project-btns .btn:hover {
+            opacity: 1 !important;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            transform: translateY(-1px);
+        }
+        
+        .python-btn {
+            background-color: #ffe066;
+            color: #7A4F1D;
+            font-weight: 600;
+            border: none;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+        
+        .python-btn:hover, .python-btn:focus {
+            background-color: #e6c84c !important;
+            color: #7A4F1D !important;
+            border: none;
+            outline: none;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            transform: translateY(-1px);
+        }
+        
+        .react-btn {
+            background-color: #61dafb;
+            color: #1a1a1a;
+            font-weight: 600;
+            border: none;
+        }
+        
+        .react-btn:hover {
+            background-color: #4fa8c7 !important;
+            color: #1a1a1a !important;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            transform: translateY(-1px);
+        }
+        
+        .docker-btn {
+            background-color: #2496ed;
+            color: white;
+            font-weight: 600;
+            border: none;
+        }
+        
+        .docker-btn:hover {
+            background-color: #1e7bb8 !important;
+            color: white !important;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            transform: translateY(-1px);
+        }
+        
+        .firebase-btn {
+            background-color: #ffca28;
+            color: #1a1a1a;
+            font-weight: 600;
+            border: none;
+        }
+        
+        .firebase-btn:hover {
+            background-color: #e6b825 !important;
+            color: #1a1a1a !important;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            transform: translateY(-1px);
+        }
+        
+        .yolo-btn {
+            background-color: #ff6b35;
+            color: white;
+            font-weight: 600;
+            border: none;
+        }
+        
+        .yolo-btn:hover {
+            background-color: #e55a2b !important;
+            color: white !important;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            transform: translateY(-1px);
+        }
+        
+        .clip-btn {
+            background-color: #8b5cf6;
+            color: white;
+            font-weight: 600;
+            border: none;
+        }
+        
+        .clip-btn:hover {
+            background-color: #7c3aed !important;
+            color: white !important;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            transform: translateY(-1px);
+        }
+        
+        .faiss-btn {
+            background-color: #10b981;
+            color: white;
+            font-weight: 600;
+            border: none;
+        }
+        
+        .faiss-btn:hover {
+            background-color: #059669 !important;
+            color: white !important;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            transform: translateY(-1px);
+        }
+        
+        .motivation-section {
+            background: #7A4F1D;
+            color: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+        
+        .challenge-section {
+            background: #ff6b35;
+            color: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+        
+        .performance-analysis {
+            background: #8b5cf6;
+            color: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+        
+        .back-to-projects {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .back-to-projects .btn {
+            background: #7A4F1D;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-projects .btn:hover {
+            background: #9B6B3A;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(122, 79, 29, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="project-hero">
+        <div class="container">
+            <h1 class="project-title">FitClassifier</h1>
+            <p class="project-subtitle">AI-Powered Fashion Recognition System - Your "Shazam for Clothes"</p>
+            <div class="project-btns">
+                <a href="https://fit-classifier.vercel.app/" target="_blank" class="btn btn-light">
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <a href="project_demo/project_demo_vid.mov" target="_blank" class="btn btn-outline-light">
+                    <i class="fas fa-play"></i> Watch Demo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="project-tabs">
+            <ul class="nav nav-tabs" id="projectTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab">
+                        <i class="fas fa-info-circle"></i> Overview
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="architecture-tab" data-bs-toggle="tab" data-bs-target="#architecture" type="button" role="tab">
+                        <i class="fas fa-sitemap"></i> Architecture
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="features-tab" data-bs-toggle="tab" data-bs-target="#features" type="button" role="tab">
+                        <i class="fas fa-star"></i> Features
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="performance-tab" data-bs-toggle="tab" data-bs-target="#performance" type="button" role="tab">
+                        <i class="fas fa-chart-line"></i> Performance
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="demo-tab" data-bs-toggle="tab" data-bs-target="#demo" type="button" role="tab">
+                        <i class="fas fa-play-circle"></i> Demo
+                    </button>
+                </li>
+            </ul>
+            
+            <div class="tab-content" id="projectTabContent">
+                <!-- Overview Tab -->
+                <div class="tab-pane fade show active" id="overview" role="tabpanel">
+                    <h2 class="section-title">Project Overview</h2>
+                    
+                    <div class="motivation-section">
+                        <h3><i class="fas fa-lightbulb"></i> Motivation</h3>
+                        <p>As an avid Pinterest scroller, I often discover unique fashion pieces that catch my eye, but many of these items lack proper identification or purchase information. This project was born from the frustration of finding beautiful clothing and jewelry without knowing how to find or buy them. FitClassifier serves as a "Shazam for clothes" - allowing users to take a photo of any fashion item and find that exact item for purchase.</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3><i class="fas fa-bullseye"></i> Problem Statement</h3>
+                        <p>Traditional fashion discovery relies heavily on manual search and browsing, which is time-consuming and often unsuccessful. Users need a way to:</p>
+                        <ul>
+                            <li>Instantly identify clothing items from images</li>
+                            <li>Find similar products available for purchase</li>
+                            <li>Discover fashion items without knowing brand names or descriptions</li>
+                            <li>Access a comprehensive database of fashion products</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3><i class="fas fa-rocket"></i> Solution</h3>
+                        <p>FitClassifier combines computer vision and natural language processing to create an intelligent fashion recognition system that:</p>
+                        <ul>
+                            <li>Detects clothing items using YOLOv8 object detection</li>
+                            <li>Generates detailed descriptions using CLIP vision-language model</li>
+                            <li>Performs semantic search using FAISS vector database</li>
+                            <li>Provides real-time product recommendations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">React</span>
+                        <span class="tech-item">YOLOv8</span>
+                        <span class="tech-item">CLIP</span>
+                        <span class="tech-item">FAISS</span>
+                        <span class="tech-item">Docker</span>
+                        <span class="tech-item">Google Cloud</span>
+                        <span class="tech-item">Firestore</span>
+                    </div>
+                </div>
+                
+                <!-- Architecture Tab -->
+                <div class="tab-pane fade" id="architecture" role="tabpanel">
+                    <h2 class="section-title">System Architecture</h2>
+                    
+                    <div class="architecture-diagram">
+                        <h3><i class="fas fa-sitemap"></i> High-Level Architecture</h3>
+                        <div style="text-align: left; max-width: 800px; margin: 0 auto;">
+                            <div style="background: #e3f2fd; padding: 1rem; border-radius: 10px; margin: 1rem 0;">
+                                <strong>Frontend (React)</strong><br>
+                                • User interface for image upload<br>
+                                • Real-time results display<br>
+                                • Product recommendation cards
+                            </div>
+                            <div style="background: #f3e5f5; padding: 1rem; border-radius: 10px; margin: 1rem 0;">
+                                <strong>Backend (Python/Docker)</strong><br>
+                                • YOLOv8 object detection<br>
+                                • CLIP vision-language processing<br>
+                                • FAISS vector search<br>
+                                • Google Cloud deployment
+                            </div>
+                            <div style="background: #e8f5e8; padding: 1rem; border-radius: 10px; margin: 1rem 0;">
+                                <strong>Database (Firestore)</strong><br>
+                                • Product metadata storage<br>
+                                • Vector embeddings<br>
+                                • User interaction logs
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3><i class="fas fa-cogs"></i> Technical Implementation</h3>
+                        <h4>1. Object Detection (YOLOv8)</h4>
+                        <p>Custom-trained YOLOv8 model for fashion item detection. The model was trained on a diverse dataset of clothing items, optimized for speed and accuracy on consumer hardware.</p>
+                        
+                        <h4>2. Vision-Language Processing (CLIP)</h4>
+                        <p>OpenAI's CLIP model generates detailed textual descriptions of detected clothing items, enabling semantic understanding of fashion features.</p>
+                        
+                        <h4>3. Vector Search (FAISS)</h4>
+                        <p>Facebook AI Similarity Search (FAISS) enables fast similarity search across millions of product embeddings, providing real-time product recommendations.</p>
+                        
+                        <h4>4. Backend Infrastructure</h4>
+                        <p>Docker containerized Python backend deployed on Google Cloud Platform with Firestore for scalable data storage and retrieval.</p>
+                    </div>
+                    
+                    <div class="challenge-section">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Key Challenges</h3>
+                        <h4>Product Search Calculation</h4>
+                        <p>The most challenging aspect was creating a FAISS index large and diverse enough to cover different types of clothing articles. Finding ways to embed unique fashion features in a manner that could be extracted and compared to new clothing inputs was crucial for system performance.</p>
+                        
+                        <h4>Model Size vs. Performance Trade-off</h4>
+                        <p>I chose a smaller YOLOv8 model for faster training on my laptop, but this came at the cost of accuracy. The model provides "mediocre performance" but serves as a solid foundation for future improvements.</p>
+                    </div>
+                </div>
+                
+                <!-- Features Tab -->
+                <div class="tab-pane fade" id="features" role="tabpanel">
+                    <h2 class="section-title">Key Features</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="content-card">
+                                <h3><i class="fas fa-camera"></i> Image Upload</h3>
+                                <p>Users can upload photos of clothing items through an intuitive drag-and-drop interface or file selection.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="content-card">
+                                <h3><i class="fas fa-search"></i> Real-time Detection</h3>
+                                <p>YOLOv8 model instantly detects and localizes clothing items within uploaded images.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="content-card">
+                                <h3><i class="fas fa-tags"></i> Semantic Description</h3>
+                                <p>CLIP model generates detailed, human-readable descriptions of detected fashion items.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="content-card">
+                                <h3><i class="fas fa-shopping-cart"></i> Product Recommendations</h3>
+                                <p>FAISS vector search provides similar product recommendations with purchase links.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3><i class="fas fa-users"></i> User Experience</h3>
+                        <p>FitClassifier is designed as a casual tool that people can use to look up clothes they're interested in, similar to how people Google things to learn more about them. Users can "FitClassifier" outfits they're interested in and find out where they come from.</p>
+                    </div>
+                    
+                    <div class="image-gallery">
+                        <div class="gallery-item">
+                            <img src="project_demo/search_results_1.jpg" alt="Fashion item detection example" style="object-fit: contain; height: 250px;">
+                            <div class="gallery-caption">Example of clothing item detection</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="project_demo/outfit3.avif" alt="Search results interface" style="object-fit: contain; height: 250px;">
+                            <div class="gallery-caption">Example of clothing item you can search</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Performance Tab -->
+                <div class="tab-pane fade" id="performance" role="tabpanel">
+                    <h2 class="section-title">Performance Analysis</h2>
+                    
+                    <div class="performance-metrics">
+                        <div class="metric-card">
+                            <div class="metric-value">75%</div>
+                            <div class="metric-label">Overall Detection Accuracy</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">85%</div>
+                            <div class="metric-label">Bottoms & Shoes Detection</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">65%</div>
+                            <div class="metric-label">Outerwear Detection</div>
+                        </div>
+                    </div>
+                    
+                    <div class="performance-analysis">
+                        <h3><i class="fas fa-chart-bar"></i> Performance Analysis</h3>
+                        
+                        <h4>Training Data Distribution</h4>
+                        <p>The model shows uneven performance across clothing categories due to imbalanced training data. Categories like "Bottoms" and "Shoes" perform well (85% accuracy), while "Outerwear" struggles (65% accuracy) due to insufficient training examples.</p>
+                        
+                        <div class="image-gallery">
+                            <div class="gallery-item">
+                                <img src="project_demo/train_instances_distribution-1.png" alt="Training data distribution" style="object-fit: contain; height: 400px;">
+                                <div class="gallery-caption">Training data distribution showing class imbalance</div>
+                            </div>
+                        </div>
+                        
+                        <h4>Detection Performance</h4>
+                        <p>The YOLOv8 model achieves "mediocre performance" overall, with the smaller model size chosen for faster training on consumer hardware. This trade-off between speed and accuracy is evident in the detection results.</p>
+                        
+                        <div class="image-gallery">
+                            <div class="gallery-item">
+                                <img src="project_demo/val_batch0_labels.jpg" alt="Validation batch detection results" style="object-fit: contain; height: 400px;">
+                                <div class="gallery-caption">Validation batch showing detection results</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="project_demo/confusion_matrix_normalized.png" alt="Confusion matrix" style="object-fit: contain; height: 400px;">
+                                <div class="gallery-caption">Normalized confusion matrix showing classification performance</div>
+                            </div>
+                        </div>
+                        
+                        <h4>Precision-Recall Analysis</h4>
+                        <p>The PR curve and F1 curve indicate areas for improvement, particularly in categories with limited training data. The model shows good precision for well-represented classes but struggles with underrepresented categories.</p>
+                        
+                        <div class="image-gallery">
+                            <div class="gallery-item">
+                                <img src="project_demo/PR_curve.png" alt="Precision-Recall curve" style="object-fit: contain; height: 400px;">
+                                <div class="gallery-caption">Precision-Recall curve showing model performance</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="project_demo/F1_curve.png" alt="F1 score curve" style="object-fit: contain; height: 400px;">
+                                <div class="gallery-caption">F1 score curve indicating model balance</div>
+                            </div>
+                        </div>
+                        
+                        <h4>Future Improvements</h4>
+                        <p>To enhance performance, I would focus on:</p>
+                        <ul>
+                            <li>Expanding the training dataset with more balanced class distribution</li>
+                            <li>Implementing data augmentation techniques</li>
+                            <li>Exploring larger model architectures for better accuracy</li>
+                            <li>Fine-tuning hyperparameters for optimal performance</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Demo Tab -->
+                <div class="tab-pane fade" id="demo" role="tabpanel">
+                    <h2 class="section-title">Live Demo & Results</h2>
+                    
+                    <div class="content-card">
+                        <h3><i class="fas fa-play-circle"></i> Live Demo</h3>
+                        <p>Experience FitClassifier in action! Upload a photo of any clothing item and watch as the AI identifies it and provides similar product recommendations.</p>
+                        <div class="demo-video">
+                            <video width="100%" controls>
+                                <source src="project_demo/project_demo_vid.mov" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3><i class="fas fa-external-link-alt"></i> Try It Yourself</h3>
+                        <p>Visit the live application to test FitClassifier with your own fashion photos:</p>
+                        <div class="text-center">
+                            <a href="https://fit-classifier.vercel.app/" target="_blank" class="btn btn-primary btn-lg">
+                                <i class="fas fa-external-link-alt"></i> Launch FitClassifier
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="image-gallery">
+                        <div class="gallery-item">
+                            <img src="project_demo/fitclassifier_ex_1.png" alt="Search results example" style="object-fit: contain; height: 400px;">
+                            <div class="gallery-caption">Example search results showing product matches</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="project_demo/search_results_2.jpg?v=2" alt="Another search result" style="object-fit: contain; height: 400px;">
+                            <div class="gallery-caption">Additional search results demonstrating system capabilities</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="back-to-projects">
+            <a href="index.html" class="btn">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
