@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Where's Waldo Solver</title>
+    <title>Lecture Notes Helper</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <style>
@@ -50,6 +50,7 @@
       }
       .project-btns .btn:hover {
         opacity: 1 !important;
+        filter: none;
         box-shadow: 0 4px 16px rgba(0,0,0,0.18);
         transform: translateY(-1px);
       }
@@ -69,18 +70,27 @@
         transform: translateY(-1px);
       }
       /* Fix for custom project button: keep background and border color on hover, add darken effect */
-      .python-btn:hover {
-        background-color: #e6c84c !important; /* slightly darker yellow */
-        border-color: #e6c84c !important;
+      .python-btn {
+        background-color: #ffe066 !important;
         color: #7A4F1D !important;
+        font-weight: 600;
+        border: none;
+        opacity: 1 !important;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
       }
-      .img-container {
+      .python-btn:hover, .python-btn:focus {
+        background-color: #e6c84c !important;
+        color: #7A4F1D !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
+      }
+      .video-container {
         display: flex;
         justify-content: center;
         margin: 2rem auto;
         max-width: 700px;
       }
-      .img-container img {
+      .video-container video {
         max-width: 100%;
         width: 600px;
         border-radius: 16px;
@@ -95,16 +105,21 @@
 </head>
 <body>
   <div class="container py-5">
-    <h1 class="project-title">Where's Waldo Solver</h1>
+    <h1 class="project-title">Lecture Notes Helper</h1>
     <div class="project-btns mb-4">
       <button type="button" class="btn btn-lg python-btn">Python</button>
     </div>
     <ul class="list-group list-group-numbered project-list mb-4">
-      <li class="list-group-item">Implemented an object detector using YOLOv8 architecture to solve "Where's Waldo" puzzles with 80% accuracy, leveraging Python and deep learning frameworks.</li>
-      <li class="list-group-item">Curated and processed diverse datasets from Kaggle and Roboflow, utilizing CVAT for precise image annotation and bounding box labeling, ensuring robust model training.</li>
+      <li class="list-group-item">Developed a RAG system using LangChain and Chroma, implementing similarity search with cosine similarity.</li>
+      <li class="list-group-item">Utilized Ollama embeddings for text-to-vector conversion and managed PDF document parsing, ID assignment, and chunking with LangChain tools.</li>
+      <li class="list-group-item">Integrated a Command Line Interface with argparse for query input and vector database management.</li>
+      <li class="list-group-item">Leveraged LLMs sourced from Ollama to provide context-aware responses based on retrieved document chunks.</li>
     </ul>
-    <div class="img-container">
-      <img src="projects/waldo-train-pic.png" alt="waldo training">
+    <div class="video-container">
+      <video controls>
+        <source src="RAG_PDF_vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

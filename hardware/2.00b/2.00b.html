@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Glass Metal Lamp</title>
+    <title>Vacuum-Formed Launcher Stadium</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <style>
@@ -63,10 +63,7 @@
       .btn-info:hover,
       .btn-light:hover,
       .btn-dark:hover,
-      .cad-btn:hover,
-      .illustrator-btn:hover,
-      .plasma-btn:hover,
-      .metalweld-btn:hover {
+      .cad-btn:hover {
         opacity: 1 !important;
         box-shadow: 0 4px 16px rgba(0,0,0,0.18);
         transform: translateY(-1px);
@@ -77,28 +74,52 @@
         border-color: #52392a !important;
         color: white !important;
       }
-      .illustrator-btn:hover {
-        background-color: #b35413 !important; /* slightly darker */
-        border-color: #b35413 !important;
+      .btn-secondary {
+        background-color: #6c757d !important;
+        border-color: #6c757d !important;
         color: white !important;
+        opacity: 1 !important;
       }
-      .plasma-btn:hover {
-        background-color: #c41a65 !important; /* slightly darker */
-        border-color: #c41a65 !important;
+      .cad-btn {
+        background-color: #7A4F1D !important;
+        border-color: #7A4F1D !important;
         color: white !important;
+        opacity: 1 !important;
       }
-      .metalweld-btn:hover {
-        background-color: #88878a !important; /* slightly darker */
-        border-color: #88878a !important;
+      .btn-light {
+        background-color: #f8f9fa !important;
+        border-color: #f8f9fa !important;
+        color: #212529 !important;
+        opacity: 1 !important;
+      }
+      .btn-secondary:hover {
+        background-color: #495057 !important;
+        border-color: #495057 !important;
         color: white !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
       }
-      .video-container {
+      .cad-btn:hover {
+        background-color: #52392a !important;
+        border-color: #52392a !important;
+        color: white !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
+      }
+      .btn-light:hover {
+        background-color: #e2e6ea !important;
+        border-color: #e2e6ea !important;
+        color: #212529 !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
+      }
+      .img-container {
         display: flex;
         justify-content: center;
         margin: 2rem auto;
         max-width: 700px;
       }
-      .video-container video {
+      .img-container img {
         max-width: 100%;
         width: 600px;
         border-radius: 16px;
@@ -113,21 +134,18 @@
 </head>
 <body>
   <div class="container py-5">
-    <h1 class="project-title">Glass Metal Lamp</h1>
+    <h1 class="project-title">Vacuum-Formed Launcher Stadium</h1>
     <div class="project-btns mb-4">
+      <button type="button" class="btn btn-lg btn-secondary">3D Printer</button>
       <button type="button" class="btn btn-lg cad-btn">CAD</button>
-      <button type="button" class="btn btn-lg illustrator-btn">Adobe Illustrator</button>
-      <button type="button" class="btn btn-lg plasma-btn">Plasma Cutter</button>
-      <button type="button" class="btn btn-lg metalweld-btn">Metal Welder</button>
+      <button type="button" class="btn btn-lg btn-light">Vacuum Form</button>
     </div>
     <ul class="list-group list-group-numbered project-list mb-4">
-      <li class="list-group-item">Utilized Adobe Illustrator to craft custom designs for a sheet metal lamp, subsequently producing them on a plasma cutter and welding them together with stained glass panels.</li>
+      <li class="list-group-item">Conceptualized a children's game that emulated dodgeball with designed launchers.</li>
+      <li class="list-group-item">The interactive game consisted of a vacuum-formed stadium, 3D-printed cannon launches, and figurines with embedded magnetic elements.</li>
     </ul>
-    <div class="video-container">
-      <video controls>
-        <source src="projects/glasslamp-vid.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <div class="img-container">
+      <img src="2.00b-project-pic.jpg" alt="2.00b project">
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

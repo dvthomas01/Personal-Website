@@ -73,63 +73,73 @@
         transform: translateY(-1px);
       }
       /* Fix for custom project buttons: keep background and border color on hover, add darken effect */
-      .html-btn {
-        background-color: #e34c26;
-        color: white;
+      .btn-warning {
+        background-color: #ffc107 !important;
+        border-color: #ffc107 !important;
+        color: #212529 !important;
         font-weight: 600;
-        border: none;
+        opacity: 1 !important;
         transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
       }
-      .html-btn:hover, .html-btn:focus {
-        background-color: #c73e1d !important; /* slightly darker orange */
+      .html-btn {
+        background-color: #e34c26 !important;
         color: white !important;
+        font-weight: 600;
         border: none;
-        outline: none;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-        transform: translateY(-1px);
+        opacity: 1 !important;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
       }
       .css-btn {
-        background-color: #264de4;
-        color: white;
+        background-color: #264de4 !important;
+        color: white !important;
         font-weight: 600;
         border: none;
+        opacity: 1 !important;
         transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
-      }
-      .css-btn:hover, .css-btn:focus {
-        background-color: #1e3a8a !important; /* slightly darker blue */
-        color: white !important;
-        border: none;
-        outline: none;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-        transform: translateY(-1px);
       }
       .node-btn {
-        background-color: #68a063;
-        color: white;
+        background-color: #68a063 !important;
+        color: white !important;
         font-weight: 600;
         border: none;
+        opacity: 1 !important;
         transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
       }
-      .node-btn:hover, .node-btn:focus {
-        background-color: #4a7c59 !important; /* slightly darker green */
+      .express-btn {
+        background-color: #000000 !important;
         color: white !important;
+        font-weight: 600;
         border: none;
-        outline: none;
+        opacity: 1 !important;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+      }
+      .btn-warning:hover, .btn-warning:focus {
+        background-color: #e0a800 !important;
+        color: #212529 !important;
         box-shadow: 0 4px 16px rgba(0,0,0,0.18);
         transform: translateY(-1px);
       }
-      .express-btn {
-        background-color: #000000;
-        color: white;
-        font-weight: 600;
-        border: none;
-        transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+      .html-btn:hover, .html-btn:focus {
+        background-color: #c73e1d !important;
+        color: white !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
+      }
+      .css-btn:hover, .css-btn:focus {
+        background-color: #1e3a8a !important;
+        color: white !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
+      }
+      .node-btn:hover, .node-btn:focus {
+        background-color: #4a7c59 !important;
+        color: white !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        transform: translateY(-1px);
       }
       .express-btn:hover, .express-btn:focus {
-        background-color: #333333 !important; /* slightly lighter black */
+        background-color: #333333 !important;
         color: white !important;
-        border: none;
-        outline: none;
         box-shadow: 0 4px 16px rgba(0,0,0,0.18);
         transform: translateY(-1px);
       }
@@ -171,7 +181,7 @@
     </ul>
     <div class="video-container">
       <video controls>
-        <source src="projects/deck-vid.mp4" type="video/mp4">
+        <source src="deck-vid.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
