@@ -190,9 +190,12 @@ opacity:1;
 
 .research-card h3 {
   margin: 0;
-  padding: 0 18px;
+  padding: 0 16px;
   text-align: center;
   max-width: 90%;
+  font-size: clamp(1.15rem, 1.6vw, 1.55rem);
+  line-height: 1.15;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 575px) {
@@ -201,7 +204,7 @@ opacity:1;
   }
 
   .research-card h3 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     line-height: 1.2;
   }
 }
