@@ -21,7 +21,7 @@ export function useEncryptedText(target: string, opts: { speed?: number } = {}):
   const speed = opts.speed ?? 45;
   const skip = shouldSkipAnimation();
   const [revealed, setRevealed] = useState(0);
-  const [text, setText] = useState(() => (skip ? target : scramble(target, 0)));
+  const [text, setText] = useState(target);
 
   useEffect(() => {
     if (skip) {
