@@ -1,16 +1,12 @@
-import type { Company } from './types';
+import type { ExperienceEntry } from './types';
+import ni from '../assets/companies/national-instruments.png';
+import rockwell from '../assets/companies/rockwell.png';
 import nasdaq from '../assets/companies/nasdaq.png';
 import elinta from '../assets/companies/elinta.png';
-import realm from '../assets/companies/realm.png';
-import rockwell from '../assets/companies/rockwell.png';
-import mgh from '../assets/companies/mgh.png';
-import ni from '../assets/companies/national-instruments.png';
 
-export const companies: Company[] = [
-  { name: 'Nasdaq', logo: nasdaq },
-  { name: 'Elinta Robotics', logo: elinta },
-  { name: 'REALM', logo: realm },
-  { name: 'Rockwell Automation', logo: rockwell },
-  { name: 'MGH', logo: mgh },
-  { name: 'National Instruments', logo: ni },
+export const experience: ExperienceEntry[] = [
+  { period: 'Summer 2026', company: 'National Instruments', role: 'Engineering Intern', logo: ni },
+  { period: 'Jun – Aug 2025', company: 'Rockwell Automation', role: 'AI Engineer Intern', logo: rockwell },
+  { period: 'Jan – Feb 2025', company: 'Nasdaq', role: 'AI Engineer Intern', logo: nasdaq },
+  { period: 'Jun – Aug 2023', company: 'Elinta Robotics', role: 'Assembly & Design Engineer Intern', logo: elinta },
 ];

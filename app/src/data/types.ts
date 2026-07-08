@@ -1,36 +1,39 @@
-export type ProjectKind = 'Software' | 'Hardware';
+export type ProjectKind = 'Software' | 'Hardware' | 'Research';
 
 export interface Project {
   id: string;
   title: string;
   tags: ProjectKind[];
-  thumbnail: string;     // imported asset URL
-  href?: string;         // external link, opens new tab
+  thumbnail: string; // imported asset URL
+  href?: string; // external link, opens new tab
   description: string;
+  year: number;
+  featured: boolean;
+}
+
+export interface ExperienceEntry {
+  period: string; // e.g. 'Summer 2026'
+  company: string;
+  role: string;
+  logo: string; // imported asset URL
 }
 
 export interface Skill {
   name: string;
-  icon: string;          // imported asset URL
+  icon: string; // imported asset URL
 }
 
-export interface Company {
-  name: string;
-  logo: string;          // imported asset URL
+export interface Photo {
+  id: string;
+  src: string; // imported asset URL
+  category: PhotoCategory;
+  alt: string;
 }
 
-export interface Publication {
-  title: string;
-  href: string;
-  thumbnail: string;
-}
-
-export type AppId =
-  | 'about' | 'skills' | 'projects' | 'experience'
-  | 'research' | 'photos' | 'resume' | 'contact';
-
-export interface AppMeta {
-  id: AppId;
-  label: string;
-  icon: string;          // imported asset URL or inline data URI
-}
+export type PhotoCategory =
+  | 'cities'
+  | 'concerts'
+  | 'formal'
+  | 'grad'
+  | 'live-events'
+  | 'sports';
