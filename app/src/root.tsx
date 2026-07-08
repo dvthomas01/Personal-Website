@@ -1,5 +1,9 @@
 import type { ReactNode } from 'react';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
+import '@fontsource/instrument-serif';
+import '@fontsource/instrument-serif/400-italic.css';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/jetbrains-mono';
 import './index.css';
 
 const themeInit = `(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',d);}catch(e){}})();`;
