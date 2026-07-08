@@ -5,6 +5,8 @@ import '@fontsource/instrument-serif/400-italic.css';
 import '@fontsource-variable/inter';
 import '@fontsource-variable/jetbrains-mono';
 import './index.css';
+import { Nav } from './components/Nav';
+import { Footer } from './components/Footer';
 
 const themeInit = `(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',d);}catch(e){}})();`;
 
@@ -30,8 +32,12 @@ export function Layout({ children }: { children: ReactNode }) {
 
 export default function Root() {
   return (
-    <div className="mx-auto max-w-5xl px-4 sm:px-6">
-      <Outlet />
+    <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-4 sm:px-6">
+      <Nav />
+      <main className="flex-1">
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 }
