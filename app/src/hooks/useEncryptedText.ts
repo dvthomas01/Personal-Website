@@ -12,17 +12,28 @@ export function scramble(target: string, revealed: number): string {
   return out;
 }
 
+function shouldSkipAnimation(): boolean {
+  if (typeof window === 'undefined') return true; // SSR/prerender: emit real text
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 export function useEncryptedText(target: string, opts: { speed?: number } = {}): string {
   const speed = opts.speed ?? 45;
+  const skip = shouldSkipAnimation();
   const [revealed, setRevealed] = useState(0);
-  const [text, setText] = useState(() => scramble(target, 0));
+  const [text, setText] = useState(() => (skip ? target : scramble(target, 0)));
 
   useEffect(() => {
+    if (skip) {
+      setText(target);
+      return;
+    }
     setRevealed(0);
     setText(scramble(target, 0));
-  }, [target]);
+  }, [target, skip]);
 
   useEffect(() => {
+    if (skip) return;
     if (revealed >= target.length) {
       setText(target);
       return;
@@ -35,7 +46,7 @@ export function useEncryptedText(target: string, opts: { speed?: number } = {}):
       });
     }, speed);
     return () => clearInterval(id);
-  }, [revealed, target, speed]);
+  }, [revealed, target, speed, skip]);
 
   return text;
 }
