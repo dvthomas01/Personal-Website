@@ -1,4 +1,4 @@
-name: Deploy Portfolio OS
+name: Deploy Portfolio
 on:
   push:
     branches: [main]
@@ -22,7 +22,7 @@ jobs:
       - run: npm run build
         working-directory: app
       - uses: actions/upload-pages-artifact@v3
-        with: { path: app/dist }
+        with: { path: app/build/client }
   deploy:
     needs: build
     runs-on: ubuntu-latest

@@ -1,14 +1,12 @@
-import { defineConfig, mergeConfig, defaultExclude } from 'vitest/config';
-import viteConfig from './vite.config';
+import { defineConfig, defaultExclude } from 'vitest/config';
+import react from '@vitejs/plugin-react';
 
-export default mergeConfig(
-  viteConfig,
-  defineConfig({
-    test: {
-      environment: 'jsdom',
-      setupFiles: ['./vitest.setup.ts'],
-      globals: true,
-      exclude: [...defaultExclude, 'e2e/**'],
-    },
-  }),
-);
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['./vitest.setup.ts'],
+    globals: true,
+    exclude: [...defaultExclude, 'e2e/**'],
+  },
+});

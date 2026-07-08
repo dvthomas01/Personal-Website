@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "react-router dev",
-    "build": "tsc -b && react-router build",
+    "build": "tsc -b && react-router build && cp -r build/client/Personal-Website/. build/client/ && rm -rf build/client/Personal-Website",
     "lint": "eslint .",
     "preview": "rm -rf .preview && mkdir -p .preview/Personal-Website && cp -r build/client/. .preview/Personal-Website/ && sirv .preview --port 4173",
     "test": "vitest run",
@@ -16,10 +16,12 @@
     "@fontsource-variable/inter": "^5.2.5",
     "@fontsource-variable/jetbrains-mono": "^5.2.5",
     "@fontsource/instrument-serif": "^5.2.5",
+    "@react-router/node": "^7.9.4",
     "framer-motion": "^12.40.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "react-router": "^7.9.4"
+    "react-router": "^7.9.4",
+    "isbot": "^5"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
