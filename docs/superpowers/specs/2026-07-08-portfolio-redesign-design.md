@@ -137,6 +137,9 @@ No separate mobile shell — same components, responsive Tailwind.
 
 - `projects.ts`: gains `featured: boolean`, `year`, keeps tags/links/thumbnails
   (all 15 thumbnails already exist in `app/src/assets/projects/`).
+  **Link correction:** PS70 Portfolio must link to
+  https://dvthomas01.github.io/PS70_Portfolio/ (Dami's own site), replacing the old
+  course-page URL (`nathanmelenbrink.github.io/ps70/about.html`).
 - `experience.ts`: rebuilt as timeline entries `{ period, company, role, logo }`
   (industry-only, four entries above).
 - `research.ts`: + Fast Breaks Fast entry (needs a thumbnail — screenshot of
