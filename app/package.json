@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "react-router dev",
-    "build": "tsc -b && react-router build && cp -r build/client/Personal-Website/. build/client/ && rm -rf build/client/Personal-Website",
+    "build": "react-router typegen && tsc -b && react-router build && node scripts/flatten-prerender.mjs",
     "lint": "eslint .",
     "preview": "rm -rf .preview && mkdir -p .preview/Personal-Website && cp -r build/client/. .preview/Personal-Website/ && sirv .preview --port 4173",
     "test": "vitest run",
