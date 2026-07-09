@@ -18,6 +18,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Dami Thomas</title>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+        <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
         <Meta />
         <Links />
       </head>

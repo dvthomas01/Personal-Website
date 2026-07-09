@@ -9,7 +9,7 @@ export function ThemeToggle() {
       onClick={toggle}
       className="rounded-lg border border-line px-2 py-1 font-mono text-xs transition-colors hover:border-accent dark:border-line-dark dark:hover:border-accent-dark"
     >
-      {theme === 'dark' ? '☾' : '☀'}
+      <span suppressHydrationWarning>{theme === 'dark' ? '🌙' : '☀️'}</span>
     </button>
   );
 }

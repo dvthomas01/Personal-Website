@@ -6,15 +6,21 @@ import { projects } from '../data/projects';
 const INTERVAL_MS = 4000;
 const featured = projects.filter((p) => p.featured);
 
+function prefersReducedMotion(): boolean {
+  if (typeof window === 'undefined') return false;
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 export function FeaturedCarousel() {
   const [index, setIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const reducedMotion = prefersReducedMotion();
 
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || reducedMotion) return;
     const id = setInterval(() => setIndex((i) => (i + 1) % featured.length), INTERVAL_MS);
     return () => clearInterval(id);
-  }, [isPaused]);
+  }, [isPaused, reducedMotion]);
 
   const current = featured[index];
 
@@ -38,7 +44,7 @@ export function FeaturedCarousel() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: reducedMotion ? 0 : 0.3 }}
           />
         </AnimatePresence>
       </div>

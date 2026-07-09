@@ -20,7 +20,6 @@ export interface ExperienceEntry {
 
 export interface Skill {
   name: string;
-  icon: string; // imported asset URL
 }
 
 export interface Photo {

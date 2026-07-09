@@ -20,3 +20,25 @@ test('links to the projects page', () => {
   render(<FeaturedCarousel />, { wrapper: MemoryRouter });
   expect(screen.getByRole('link', { name: /projects/i })).toHaveAttribute('href', '/projects');
 });
+
+test('does not auto-advance when prefers-reduced-motion is set', () => {
+  const original = window.matchMedia;
+  window.matchMedia = ((query: string) => ({
+    matches: query.includes('prefers-reduced-motion'),
+    media: query,
+    onchange: null,
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    addListener: () => {},
+    removeListener: () => {},
+    dispatchEvent: () => false,
+  })) as typeof window.matchMedia;
+  vi.useFakeTimers();
+  render(<FeaturedCarousel />, { wrapper: MemoryRouter });
+  act(() => {
+    vi.advanceTimersByTime(8500);
+  });
+  expect(screen.getByText(featured[0].title, { exact: false })).toBeInTheDocument();
+  vi.useRealTimers();
+  window.matchMedia = original;
+});

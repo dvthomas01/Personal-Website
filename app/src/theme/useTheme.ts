@@ -3,10 +3,13 @@ import { getInitialTheme, type Theme } from './theme';
 
 function detectTheme(): Theme {
   if (typeof window === 'undefined') return 'light';
-  return getInitialTheme(
-    localStorage.getItem('theme'),
-    window.matchMedia('(prefers-color-scheme: dark)').matches,
-  );
+  let stored: string | null = null;
+  try {
+    stored = localStorage.getItem('theme');
+  } catch {
+    /* storage unavailable */
+  }
+  return getInitialTheme(stored, window.matchMedia('(prefers-color-scheme: dark)').matches);
 }
 
 export function useTheme(): { theme: Theme; toggle: () => void } {
@@ -19,7 +22,11 @@ export function useTheme(): { theme: Theme; toggle: () => void } {
   const toggle = () =>
     setTheme((current) => {
       const next: Theme = current === 'dark' ? 'light' : 'dark';
-      localStorage.setItem('theme', next);
+      try {
+        localStorage.setItem('theme', next);
+      } catch {
+        /* storage unavailable */
+      }
       return next;
     });
 
