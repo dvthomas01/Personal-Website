@@ -10,9 +10,9 @@ import { waldo } from './projects/waldo';
 import { dictionary } from './projects/dictionary';
 import { lectureNote } from './projects/lecture-note';
 import { pacman } from './projects/pacman';
+import { deck } from './projects/deck';
+import { fitclassifier } from './projects/fitclassifier';
 
-// TODO(task-5): spread in deck and fitclassifier as their content files
-// land, so this covers all 13 detailIds.
 export const projectDetails: Record<string, ProjectDetail> = {
   autobot,
   'comp-robot': compRobot,
@@ -24,5 +24,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
   waldo,
   dictionary,
   'lecture-note': lectureNote,
+  deck,
   pacman,
+  fitclassifier,
 };
