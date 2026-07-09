@@ -25,7 +25,10 @@ export default function Photos() {
             key={c}
             type="button"
             aria-pressed={category === c}
-            onClick={() => setCategory(c)}
+            onClick={() => {
+              setCategory(c);
+              setLightboxIndex(null);
+            }}
             className={`rounded-full border px-3 py-1 font-mono text-xs transition-colors ${
               category === c
                 ? 'border-accent text-accent dark:border-accent-dark dark:text-accent-dark'
