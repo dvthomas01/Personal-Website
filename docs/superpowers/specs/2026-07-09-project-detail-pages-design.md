@@ -63,7 +63,9 @@ by `app/src/data/projectDetails.ts`.
 - Text and bullets carry over from the legacy HTML, lightly humanized
   (no em dashes, no noun-pile fragments); meaning never changes and no
   facts are invented.
-- Media moves to `app/public/projects/<id>/` and is referenced via
+- Media moves to `app/public/media/<id>/` (not `public/projects/`, which
+  would collide with the prerendered `projects/*` HTML in the flatten step)
+  and is referenced via
   `import.meta.env.BASE_URL`. Videos keep original quality; posters come
   from each project's existing still image. HEIC files are skipped (their
   JPG twins migrate). Stray `.txt` prompt files do not migrate.
