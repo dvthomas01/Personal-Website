@@ -4,10 +4,17 @@ import { projects } from './projects';
 
 // TODO(task-5): once all 13 content files land, assert
 // `Object.keys(projectDetails).sort()` equals `[...detailIds].sort()`.
-// Until then only autobot exists, so we assert containment, not full coverage.
+// Until then only autobot, comp-robot, glasslamp, launcher, and fmab exist,
+// so we assert containment, not full coverage.
 test('every projectDetails key is one of the 13 detailIds', () => {
   for (const key of Object.keys(projectDetails)) {
     expect(detailIds).toContain(key);
+  }
+});
+
+test('the four hardware projects from Task 3 have content', () => {
+  for (const id of ['comp-robot', 'glasslamp', 'launcher', 'fmab']) {
+    expect(projectDetails[id]).toBeDefined();
   }
 });
 
