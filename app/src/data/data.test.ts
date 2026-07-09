@@ -35,6 +35,12 @@ test("PS70 links to Dami's own portfolio, not the course page", () => {
   expect(ps70?.href).toBe('https://dvthomas01.github.io/PS70_Portfolio/');
 });
 
+test('autobot description matches the Arduino maze robot, not the ROS 2 project', () => {
+  const autobot = projects.find((p) => p.id === 'autobot');
+  expect(autobot?.description).toMatch(/Arduino/);
+  expect(autobot?.description).not.toMatch(/ROS/);
+});
+
 test('experience is industry-only, newest first', () => {
   expect(experience.map((e) => e.company)).toEqual([
     'National Instruments',

@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { Link } from 'react-router';
 import { projects } from '../data/projects';
 import { FILTERS, countFor, filterProjects, type ProjectFilter } from '../lib/projectFilters';
 import { ProjectCard } from '../components/ProjectCard';
+import { detailIds } from '../data/detailIds';
 
 export default function Projects() {
   const [filter, setFilter] = useState<ProjectFilter>('All');
@@ -48,23 +50,34 @@ export default function Projects() {
             Archive
           </p>
           <ul className="mt-3 divide-y divide-line dark:divide-line-dark">
-            {archive.map((p) => (
-              <li key={p.id}>
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex flex-wrap items-baseline gap-x-4 gap-y-1 py-3 hover:text-accent dark:hover:text-accent-dark"
-                >
+            {archive.map((p) => {
+              const className =
+                'flex flex-wrap items-baseline gap-x-4 gap-y-1 py-3 hover:text-accent dark:hover:text-accent-dark';
+              const rowContent = (
+                <>
                   <span className="font-mono text-xs text-ink/40 dark:text-ink-dark/40">{p.year}</span>
                   <span className="font-medium">{p.title}</span>
                   <span className="text-sm text-ink/50 dark:text-ink-dark/50">{p.description}</span>
                   <span className="ml-auto font-mono text-xs text-accent dark:text-accent-dark">
                     {p.tags.join(' · ').toLowerCase()}
                   </span>
-                </a>
-              </li>
-            ))}
+                </>
+              );
+
+              return (
+                <li key={p.id}>
+                  {detailIds.includes(p.id) ? (
+                    <Link to={`/projects/${p.id}`} className={className}>
+                      {rowContent}
+                    </Link>
+                  ) : (
+                    <a href={p.href} target="_blank" rel="noreferrer" className={className}>
+                      {rowContent}
+                    </a>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </section>
       )}

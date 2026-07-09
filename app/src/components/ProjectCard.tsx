@@ -1,13 +1,13 @@
+import { Link } from 'react-router';
 import type { Project } from '../data/types';
+import { detailIds } from '../data/detailIds';
 
 export function ProjectCard({ project }: { project: Project }) {
-  return (
-    <a
-      href={project.href}
-      target="_blank"
-      rel="noreferrer"
-      className="bento group block transition-transform hover:-translate-y-0.5 hover:border-accent dark:hover:border-accent-dark"
-    >
+  const className =
+    'bento group block transition-transform hover:-translate-y-0.5 hover:border-accent dark:hover:border-accent-dark';
+
+  const content = (
+    <>
       <div className="flex items-baseline justify-between font-mono text-xs">
         <span className="text-accent dark:text-accent-dark"># {project.tags.join(' · ').toLowerCase()}</span>
         <span className="text-ink/40 dark:text-ink-dark/40">{project.year}</span>
@@ -22,6 +22,20 @@ export function ProjectCard({ project }: { project: Project }) {
           className="aspect-[4/3] w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
         />
       </div>
+    </>
+  );
+
+  if (detailIds.includes(project.id)) {
+    return (
+      <Link to={`/projects/${project.id}`} className={className}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <a href={project.href} target="_blank" rel="noreferrer" className={className}>
+      {content}
     </a>
   );
 }

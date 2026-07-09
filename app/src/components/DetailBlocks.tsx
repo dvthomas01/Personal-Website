@@ -22,7 +22,6 @@ export function DetailBlocks({ blocks }: { blocks: DetailBlock[] }) {
         if (block.type === 'video') {
           return (
             <div key={blockIndex} className="bento overflow-hidden p-0">
-              {/* eslint-disable-next-line jsx-a11y/media-has-caption -- source-less demo clips, no caption track available */}
               <video controls preload="none" poster={block.poster} className="w-full rounded-2xl">
                 <source src={block.src} type="video/mp4" />
               </video>
