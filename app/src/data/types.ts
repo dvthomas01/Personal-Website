@@ -36,3 +36,16 @@ export type PhotoCategory =
   | 'grad'
   | 'live-events'
   | 'sports';
+
+export type DetailBlock =
+  | { type: 'text'; heading?: string; paragraphs: string[] }
+  | { type: 'bullets'; heading?: string; items: string[] }
+  | { type: 'video'; src: string; poster: string; caption?: string }
+  | { type: 'image'; src: string; alt: string; caption?: string }
+  | { type: 'gallery'; heading?: string; images: { src: string; alt: string }[] };
+
+export interface ProjectDetail {
+  id: string; // must match a Project id
+  tech: string[]; // chip labels
+  blocks: DetailBlock[];
+}
