@@ -1,6 +1,7 @@
 import { Hero } from '../components/Hero';
 import { ExperienceCard } from '../components/ExperienceCard';
 import { FeaturedCarousel } from '../components/FeaturedCarousel';
+import { ResearchCard } from '../components/ResearchCard';
 import { PhotoTeaser } from '../components/PhotoTeaser';
 import { DirectoryListing } from '../components/DirectoryListing';
 
@@ -12,6 +13,7 @@ export default function Home() {
         <ExperienceCard />
         <FeaturedCarousel />
       </div>
+      <ResearchCard />
       <PhotoTeaser />
       <DirectoryListing />
     </div>

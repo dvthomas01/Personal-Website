@@ -8,7 +8,7 @@ export function ExperienceCard() {
         Experience
       </h2>
       <p className="mt-1 text-sm text-ink/60 dark:text-ink-dark/60">
-        A few of the places I've contributed to.
+        Where I've worked so far.
       </p>
       <ul className="mt-6 divide-y divide-line dark:divide-line-dark">
         {experience.map((entry) => (

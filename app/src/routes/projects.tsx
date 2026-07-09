@@ -11,9 +11,9 @@ export default function Projects() {
 
   return (
     <div className="pb-8">
-      <h1 className="font-serif text-5xl">Projects.</h1>
+      <h1 className="font-serif text-5xl">Projects</h1>
       <p className="mt-2 text-ink/60 dark:text-ink-dark/60">
-        Things I've built — robots, hardware, software, and research.
+        Class builds, side projects, and research.
       </p>
 
       <div role="group" aria-label="Filter projects" className="mt-6 flex flex-wrap gap-2">

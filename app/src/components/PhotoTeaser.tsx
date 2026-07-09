@@ -1,9 +1,12 @@
 import { Link } from 'react-router';
 import { photos } from '../data/photos';
 
-// One representative shot per vibe: city, concert, grad, sports.
-const TEASER_IDS = ['city-lisbon-01', 'concert-01', 'grad-com-03', 'sports-bm-04'];
-const teaser = photos.filter((p) => TEASER_IDS.includes(p.id));
+// One representative shot per vibe, derived from the gallery so the teaser
+// survives photo reshuffles: first city, concert, grad, and sports photo.
+const TEASER_CATEGORIES = ['cities', 'concerts', 'grad', 'sports'] as const;
+const teaser = TEASER_CATEGORIES.map(
+  (category) => photos.find((p) => p.category === category),
+).filter((p) => p !== undefined);
 
 export function PhotoTeaser() {
   return (

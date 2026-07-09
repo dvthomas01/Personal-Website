@@ -1,28 +1,28 @@
 import type { Photo, PhotoCategory } from './types';
-import cityBoston01 from '../assets/photos/city-boston-01.jpg';
 import cityLisbon01 from '../assets/photos/city-lisbon-01.jpg';
-import cityLisbon07 from '../assets/photos/city-lisbon-07.jpg';
-import cityMadrid02 from '../assets/photos/city-madrid-02.jpg';
-import cityNy03 from '../assets/photos/city-ny-03.jpg';
-import concert01 from '../assets/photos/concert-01.jpg';
+import cityMadrid01 from '../assets/photos/city-madrid-01.jpg';
+import cityNy04 from '../assets/photos/city-ny-04.jpg';
+import cityBoston01 from '../assets/photos/city-boston-01.jpg';
+import cityLisbon06 from '../assets/photos/city-lisbon-06.jpg';
+import cityLisbon02 from '../assets/photos/city-lisbon-02.jpg';
+import cityMadrid04 from '../assets/photos/city-madrid-04.jpg';
+import concert03 from '../assets/photos/concert-03.jpg';
 import concert04 from '../assets/photos/concert-04.jpg';
-import concert06 from '../assets/photos/concert-06.jpg';
-import formal02 from '../assets/photos/formal-02.jpg';
-import formalBsu01 from '../assets/photos/formal-bsu-01.jpg';
-import formalF2503 from '../assets/photos/formal-f25-03.jpg';
-import formal07 from '../assets/photos/formal-07.jpg';
-import gradCom03 from '../assets/photos/grad-com-03.jpg';
-import gradMb01 from '../assets/photos/grad-mb-01.jpg';
-import gradSaas02 from '../assets/photos/grad-saas-02.jpg';
-import grad05 from '../assets/photos/grad-05.jpg';
-import eventLoco03 from '../assets/photos/event-loco-03.jpg';
-import eventMarket02 from '../assets/photos/event-market-02.jpg';
+import concert05 from '../assets/photos/concert-05.jpg';
+import eventSpring01 from '../assets/photos/event-spring-01.jpg';
+import eventSpring03 from '../assets/photos/event-spring-03.jpg';
 import eventSpring05 from '../assets/photos/event-spring-05.jpg';
-import eventUmunna01 from '../assets/photos/event-umunna-01.jpg';
-import sportsBm04 from '../assets/photos/sports-bm-04.jpg';
-import sportsWr03 from '../assets/photos/sports-wr-03.jpg';
-import sportsBm09 from '../assets/photos/sports-bm-09.jpg';
-import sportsWr08 from '../assets/photos/sports-wr-08.jpg';
+import eventSpring06 from '../assets/photos/event-spring-06.jpg';
+import eventSpring08 from '../assets/photos/event-spring-08.jpg';
+import gradMb03 from '../assets/photos/grad-mb-03.jpg';
+import gradMb01 from '../assets/photos/grad-mb-01.jpg';
+import gradCom03 from '../assets/photos/grad-com-03.jpg';
+import gradSaas06 from '../assets/photos/grad-saas-06.jpg';
+import sportsBm01 from '../assets/photos/sports-bm-01.jpg';
+import sportsBm05 from '../assets/photos/sports-bm-05.jpg';
+import sportsBm07 from '../assets/photos/sports-bm-07.jpg';
+import sportsWr05 from '../assets/photos/sports-wr-05.jpg';
+import sportsWr09 from '../assets/photos/sports-wr-09.jpg';
 
 export const PHOTO_CATEGORIES: PhotoCategory[] = [
   'cities',
@@ -33,29 +33,31 @@ export const PHOTO_CATEGORIES: PhotoCategory[] = [
   'sports',
 ];
 
+// A snippet of the full gallery, hand-vetted: performance and action shots,
+// portraits, and street scenes. The order interleaves categories on purpose.
 export const photos: Photo[] = [
-  { id: 'city-boston-01', src: cityBoston01, category: 'cities', alt: 'Boston cityscape' },
-  { id: 'city-lisbon-01', src: cityLisbon01, category: 'cities', alt: 'Lisbon street scene' },
-  { id: 'city-lisbon-07', src: cityLisbon07, category: 'cities', alt: 'Lisbon architecture' },
-  { id: 'city-madrid-02', src: cityMadrid02, category: 'cities', alt: 'Madrid city view' },
-  { id: 'city-ny-03', src: cityNy03, category: 'cities', alt: 'New York City street' },
-  { id: 'concert-01', src: concert01, category: 'concerts', alt: 'Concert stage lights' },
-  { id: 'concert-04', src: concert04, category: 'concerts', alt: 'Live concert performance' },
-  { id: 'concert-06', src: concert06, category: 'concerts', alt: 'Concert crowd' },
-  { id: 'formal-02', src: formal02, category: 'formal', alt: 'Formal event portrait' },
-  { id: 'formal-bsu-01', src: formalBsu01, category: 'formal', alt: 'BSU formal event' },
-  { id: 'formal-f25-03', src: formalF2503, category: 'formal', alt: 'Fall formal portrait' },
-  { id: 'formal-07', src: formal07, category: 'formal', alt: 'Formal group shot' },
-  { id: 'grad-com-03', src: gradCom03, category: 'grad', alt: 'Commencement ceremony' },
-  { id: 'grad-mb-01', src: gradMb01, category: 'grad', alt: 'Graduation portrait' },
-  { id: 'grad-saas-02', src: gradSaas02, category: 'grad', alt: 'Graduation celebration' },
-  { id: 'grad-05', src: grad05, category: 'grad', alt: 'Graduate portrait at MIT' },
-  { id: 'event-loco-03', src: eventLoco03, category: 'live-events', alt: 'Live event performance' },
-  { id: 'event-market-02', src: eventMarket02, category: 'live-events', alt: 'Market event scene' },
-  { id: 'event-spring-05', src: eventSpring05, category: 'live-events', alt: 'Spring event' },
-  { id: 'event-umunna-01', src: eventUmunna01, category: 'live-events', alt: 'Umunna event' },
-  { id: 'sports-bm-04', src: sportsBm04, category: 'sports', alt: 'Basketball game action' },
-  { id: 'sports-wr-03', src: sportsWr03, category: 'sports', alt: 'Wrestling match' },
-  { id: 'sports-bm-09', src: sportsBm09, category: 'sports', alt: 'Basketball court action' },
-  { id: 'sports-wr-08', src: sportsWr08, category: 'sports', alt: 'Wrestling competition' },
+  { id: 'city-lisbon-01', src: cityLisbon01, category: 'cities', alt: 'Lisbon rooftops at dusk' },
+  { id: 'concert-04', src: concert04, category: 'concerts', alt: 'Singer mid-song under stage lights' },
+  { id: 'grad-mb-03', src: gradMb03, category: 'grad', alt: 'Graduates by the columns' },
+  { id: 'event-spring-01', src: eventSpring01, category: 'live-events', alt: 'Performer in red light with motion trails' },
+  { id: 'sports-bm-05', src: sportsBm05, category: 'sports', alt: 'Boston Marathon runner celebrating past the crowd' },
+  { id: 'city-madrid-01', src: cityMadrid01, category: 'cities', alt: 'Madrid street scene' },
+  { id: 'event-spring-03', src: eventSpring03, category: 'live-events', alt: 'DJ deck long exposure with light trails' },
+  { id: 'grad-com-03', src: gradCom03, category: 'grad', alt: 'Graduate in MIT stole on a sunny commencement day' },
+  { id: 'city-ny-04', src: cityNy04, category: 'cities', alt: 'New York City avenue' },
+  { id: 'sports-wr-05', src: sportsWr05, category: 'sports', alt: 'Wrestlers locked mid-match' },
+  { id: 'concert-05', src: concert05, category: 'concerts', alt: 'Singer in profile against a dark stage' },
+  { id: 'event-spring-06', src: eventSpring06, category: 'live-events', alt: 'Performer with arm raised on stage' },
+  { id: 'city-boston-01', src: cityBoston01, category: 'cities', alt: 'Boston skyline' },
+  { id: 'grad-mb-01', src: gradMb01, category: 'grad', alt: 'Graduate holding his cap between the columns' },
+  { id: 'sports-bm-01', src: sportsBm01, category: 'sports', alt: 'Marathon walker in focus among blurred runners' },
+  { id: 'city-lisbon-06', src: cityLisbon06, category: 'cities', alt: 'Lisbon alley in afternoon light' },
+  { id: 'event-spring-05', src: eventSpring05, category: 'live-events', alt: 'DJs working the decks at a night set' },
+  { id: 'concert-03', src: concert03, category: 'concerts', alt: 'Singer bathed in red light' },
+  { id: 'grad-saas-06', src: gradSaas06, category: 'grad', alt: 'Friends celebrating at commencement' },
+  { id: 'city-lisbon-02', src: cityLisbon02, category: 'cities', alt: 'Tram tracks through Lisbon' },
+  { id: 'sports-bm-07', src: sportsBm07, category: 'sports', alt: 'Marathon runner pumping his fist mid-race' },
+  { id: 'event-spring-08', src: eventSpring08, category: 'live-events', alt: 'Vocalist lit in pink and blue' },
+  { id: 'city-madrid-04', src: cityMadrid04, category: 'cities', alt: 'El Rastro market crowd in Madrid' },
+  { id: 'sports-wr-09', src: sportsWr09, category: 'sports', alt: 'Wrestling mat in black and white' },
 ];

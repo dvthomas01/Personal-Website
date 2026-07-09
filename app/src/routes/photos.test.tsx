@@ -1,20 +1,26 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import Photos from './photos';
+import { photos } from '../data/photos';
 
-test('changing category closes an open lightbox (no stale index crash)', () => {
+test('renders the full snippet gallery with no filter chips', () => {
   render(<Photos />);
-  // Open the lightbox on a photo (click the first photo to open lightbox)
-  const photoButtons = screen.getAllByRole('button', { name: /^(Boston|Lisbon|Madrid|New York|Concert|Formal|Commencement|Graduation|Spring|Market|Boxing|Wrestling)/ });
-  fireEvent.click(photoButtons[photoButtons.length - 1]); // Click last photo to set high index
+  // Every photo is shown; there is no filtering UI anymore.
+  expect(screen.getAllByRole('img')).toHaveLength(photos.length);
+  expect(screen.queryByRole('group', { name: /filter/i })).not.toBeInTheDocument();
+});
 
-  // Verify lightbox is open
+test('clicking a photo opens the lightbox and Escape closes it', () => {
+  render(<Photos />);
+  fireEvent.click(screen.getByRole('button', { name: photos[0].alt }));
   expect(screen.getByRole('dialog', { name: 'Photo viewer' })).toBeInTheDocument();
+  fireEvent.keyDown(window, { key: 'Escape' });
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+});
 
-  // Switch to a category with fewer photos (concerts has only 3)
-  const categoryButtons = screen.getAllByRole('button', { name: /^(all|cities|concerts|formal|grad|live-events|sports)$/ });
-  const concertsButton = categoryButtons.find(btn => btn.textContent === 'concerts');
-  fireEvent.click(concertsButton!);
-
-  // Lightbox should be closed after changing category
-  expect(screen.queryByRole('dialog', { name: 'Photo viewer' })).not.toBeInTheDocument();
+test('links out to the full gallery', () => {
+  render(<Photos />);
+  expect(screen.getByRole('link', { name: /view the full gallery/i })).toHaveAttribute(
+    'href',
+    expect.stringContaining('vercel.app'),
+  );
 });

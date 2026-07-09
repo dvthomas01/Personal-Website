@@ -10,7 +10,7 @@ test('home loads and hero decrypts to the exact headline', async ({ page }) => {
 
 test('projects page filters work', async ({ page }) => {
   await page.goto('./projects/');
-  await expect(page.getByRole('heading', { name: 'Projects.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Projects', exact: true })).toBeVisible();
   await page.getByRole('button', { name: /Research · 3/ }).click();
   await expect(page.getByText(/Fast Breaks Fast/)).toBeVisible();
   await expect(page.getByText('PS70 Portfolio')).toHaveCount(0);
@@ -18,7 +18,7 @@ test('projects page filters work', async ({ page }) => {
 
 test('photos lightbox opens, navigates, and closes', async ({ page }) => {
   await page.goto('./photos/');
-  await expect(page.getByRole('heading', { name: 'Photos.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Photos', exact: true })).toBeVisible();
   await page.locator('.columns-2 button').first().click();
   const dialog = page.getByRole('dialog', { name: 'Photo viewer' });
   await expect(dialog).toBeVisible();
@@ -41,5 +41,5 @@ test('theme toggle flips and persists across reload', async ({ page }) => {
 test('prerendered projects HTML contains real content', async ({ request }) => {
   const res = await request.get('/Personal-Website/projects/');
   const body = await res.text();
-  expect(body).toContain('Projects.');
+  expect(body).toContain('PS70 Portfolio');
 });

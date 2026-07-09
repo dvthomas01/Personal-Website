@@ -14,12 +14,12 @@ export function ProjectCard({ project }: { project: Project }) {
       </div>
       <h3 className="mt-2 font-serif text-2xl">{project.title}</h3>
       <p className="mt-1 text-sm text-ink/60 dark:text-ink-dark/60">{project.description}</p>
-      <div className="mt-4 overflow-hidden rounded-xl border border-line dark:border-line-dark">
+      <div className="mt-4 overflow-hidden rounded-xl border border-line bg-ink/[0.03] dark:border-line-dark dark:bg-white/[0.03]">
         <img
           src={project.thumbnail}
           alt={project.title}
           loading="lazy"
-          className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+          className="aspect-[4/3] w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
         />
       </div>
     </a>
