@@ -7,13 +7,13 @@ beforeEach(() => {
   document.documentElement.classList.remove('dark');
 });
 
-test('toggles dark class on html and persists choice', async () => {
+test('toggles the dark class on html without persisting a preference', async () => {
   render(<ThemeToggle />);
   const button = screen.getByRole('button', { name: /toggle theme/i });
   await userEvent.click(button);
   expect(document.documentElement).toHaveClass('dark');
-  expect(localStorage.getItem('theme')).toBe('dark');
   await userEvent.click(button);
   expect(document.documentElement).not.toHaveClass('dark');
-  expect(localStorage.getItem('theme')).toBe('light');
+  // Theme is session-only — nothing is written to storage.
+  expect(localStorage.getItem('theme')).toBeNull();
 });

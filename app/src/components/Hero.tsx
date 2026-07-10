@@ -37,7 +37,7 @@ export function Hero() {
         <img
           src={damiGrad}
           alt="Dami Thomas at MIT"
-          className="h-full max-h-96 w-full object-cover object-[50%_32%] transition-[filter] dark:brightness-90"
+          className="aspect-[2/3] w-full object-cover transition-[filter] dark:brightness-90"
           loading="eager"
         />
       </div>

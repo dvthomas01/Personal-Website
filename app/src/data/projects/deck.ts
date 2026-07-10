@@ -16,7 +16,7 @@ export const deck: ProjectDetail = {
       type: 'text',
       heading: 'Project overview',
       paragraphs: [
-        "I built this to get hands-on experience with a public API and ship something interactive for Yu-Gi-Oh! players. It's less a demo and more a full mini web app: search, filter, save, and get advice, wired end to end.",
+        'I built this to get hands-on experience with a public API and ship something interactive for Yu-Gi-Oh! players.',
         'The app searches and filters over 12,000 cards, shows full card details, and lets you build a personal deck by saving and removing cards. It also includes a chat-style deck advisor for meta and news guidance, with backend integration for that still planned.',
       ],
     },

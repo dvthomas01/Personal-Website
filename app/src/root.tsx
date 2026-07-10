@@ -8,7 +8,9 @@ import './index.css';
 import { Nav } from './components/Nav';
 import { Footer } from './components/Footer';
 
-const themeInit = `(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',d);}catch(e){}})();`;
+// Always start in light mode. Clear any previously saved preference and strip a
+// stale dark class before first paint so the site never opens in dark mode.
+const themeInit = `(function(){try{localStorage.removeItem('theme');document.documentElement.classList.remove('dark');}catch(e){}})();`;
 
 export function Layout({ children }: { children: ReactNode }) {
   return (

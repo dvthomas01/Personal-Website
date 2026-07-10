@@ -13,6 +13,17 @@ interface OpenGallery {
   photoIndex: number;
 }
 
+// Distribute items round-robin so each column holds an even count (differing by
+// at most one), instead of CSS multi-columns which balance by height and can
+// leave one column with far more images than the other.
+function toColumns<T>(items: T[], columnCount: number): T[][] {
+  const columns: T[][] = Array.from({ length: columnCount }, () => []);
+  items.forEach((item, index) => {
+    columns[index % columnCount].push(item);
+  });
+  return columns;
+}
+
 export function DetailBlocks({ blocks }: { blocks: DetailBlock[] }) {
   const [openGallery, setOpenGallery] = useState<OpenGallery | null>(null);
 
@@ -22,7 +33,13 @@ export function DetailBlocks({ blocks }: { blocks: DetailBlock[] }) {
         if (block.type === 'video') {
           return (
             <div key={blockIndex} className="bento overflow-hidden p-0">
-              <video controls preload="none" poster={block.poster} className="w-full rounded-2xl">
+              <video
+                key={block.src}
+                controls
+                preload="none"
+                poster={block.poster}
+                className="mx-auto max-h-[80vh] w-full rounded-2xl bg-black object-contain"
+              >
                 <source src={block.src} type="video/mp4" />
               </video>
               {block.caption && (
@@ -68,7 +85,7 @@ export function DetailBlocks({ blocks }: { blocks: DetailBlock[] }) {
                 src={block.src}
                 alt={block.alt}
                 loading="lazy"
-                className="w-full rounded-2xl border border-line dark:border-line-dark"
+                className="mx-auto block max-h-[32rem] w-auto max-w-full rounded-2xl border border-line object-contain dark:border-line-dark"
               />
               {block.caption && (
                 <figcaption className="mt-2 font-mono text-xs text-ink/40 dark:text-ink-dark/40">
@@ -86,24 +103,33 @@ export function DetailBlocks({ blocks }: { blocks: DetailBlock[] }) {
           alt: image.alt,
         }));
 
+        const columnCount = galleryPhotos.length > 1 ? 2 : 1;
+
         return (
           <div key={blockIndex}>
             {block.heading && <h2 className="font-serif text-2xl">{block.heading}</h2>}
-            <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-3">
-              {galleryPhotos.map((photo, photoIndex) => (
-                <button
-                  key={photo.id}
-                  type="button"
-                  onClick={() => setOpenGallery({ blockIndex, photoIndex })}
-                  className="overflow-hidden rounded-xl"
-                >
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    loading="lazy"
-                    className="aspect-[4/3] w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
-                  />
-                </button>
+            <div className="mt-4 flex flex-col gap-4 sm:flex-row">
+              {toColumns(galleryPhotos, columnCount).map((column, columnIndex) => (
+                <div key={columnIndex} className="flex flex-1 flex-col gap-4">
+                  {column.map((photo) => {
+                    const photoIndex = galleryPhotos.findIndex((p) => p.id === photo.id);
+                    return (
+                      <button
+                        key={photo.id}
+                        type="button"
+                        onClick={() => setOpenGallery({ blockIndex, photoIndex })}
+                        className="block w-full overflow-hidden rounded-xl border border-line dark:border-line-dark"
+                      >
+                        <img
+                          src={photo.src}
+                          alt={photo.alt}
+                          loading="lazy"
+                          className="w-full rounded-xl transition-transform duration-300 will-change-transform hover:scale-[1.02]"
+                        />
+                      </button>
+                    );
+                  })}
+                </div>
               ))}
             </div>
             {openGallery?.blockIndex === blockIndex && (

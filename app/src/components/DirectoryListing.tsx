@@ -21,8 +21,7 @@ export function DirectoryListing() {
         </Link>
         <a href={cvHref} target="_blank" rel="noreferrer" className={ROW}>
           <span className="text-ink/40 dark:text-ink-dark/40">-</span>
-          <span>cv.pdf</span>
-          <span className="text-ink/40 dark:text-ink-dark/40">résumé</span>
+          <span>resume</span>
         </a>
         <a href={site.github} target="_blank" rel="noreferrer" className={ROW}>
           <span className="text-ink/40 dark:text-ink-dark/40">-</span>

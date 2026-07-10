@@ -27,15 +27,14 @@ test('photos lightbox opens, navigates, and closes', async ({ page }) => {
   await expect(dialog).toHaveCount(0);
 });
 
-test('theme toggle flips and persists across reload', async ({ page }) => {
+test('site loads in light mode and dark is session-only', async ({ page }) => {
   await page.goto('./');
   const html = page.locator('html');
-  const wasDark = await html.evaluate((el) => el.classList.contains('dark'));
+  await expect(html).not.toHaveClass(/dark/);
   await page.getByRole('button', { name: /toggle theme/i }).click();
-  await expect(html).toHaveClass(wasDark ? /^(?!.*dark).*$/ : /dark/);
+  await expect(html).toHaveClass(/dark/);
   await page.reload();
-  const isDarkAfterReload = await html.evaluate((el) => el.classList.contains('dark'));
-  expect(isDarkAfterReload).toBe(!wasDark);
+  await expect(html).not.toHaveClass(/dark/);
 });
 
 test('prerendered projects HTML contains real content', async ({ request }) => {

@@ -15,13 +15,13 @@ export function ResearchCard() {
               href={entry.href}
               target="_blank"
               rel="noreferrer"
-              className="group flex flex-wrap items-baseline gap-x-4 gap-y-1 py-3 hover:text-accent dark:hover:text-accent-dark"
+              className="group flex items-baseline gap-4 py-3 hover:text-accent dark:hover:text-accent-dark"
             >
-              <span className="font-mono text-xs text-ink/40 dark:text-ink-dark/40">
+              <span className="w-10 shrink-0 font-mono text-xs text-ink/40 dark:text-ink-dark/40">
                 {entry.year}
               </span>
-              <span className="font-medium">{entry.title}</span>
-              <span className="ml-auto font-mono text-xs text-accent opacity-0 transition-opacity group-hover:opacity-100 dark:text-accent-dark">
+              <span className="min-w-0 flex-1 font-medium">{entry.title}</span>
+              <span className="shrink-0 self-center font-mono text-xs text-accent opacity-0 transition-opacity group-hover:opacity-100 dark:text-accent-dark">
                 →
               </span>
             </a>

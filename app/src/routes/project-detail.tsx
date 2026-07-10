@@ -55,7 +55,7 @@ export default function ProjectDetailPage() {
         ))}
       </div>
 
-      <DetailBlocks blocks={detail.blocks} />
+      <DetailBlocks key={project.id} blocks={detail.blocks} />
 
       {prevProject && nextProject && (
         <div className="mt-12 flex items-start justify-between border-t border-line pt-6 font-mono text-sm dark:border-line-dark">

@@ -16,7 +16,7 @@ export const fitclassifier: ProjectDetail = {
       type: 'text',
       heading: 'Project overview',
       paragraphs: [
-        'I built FitClassifier after one too many Pinterest scrolls: I kept finding jackets and jewelry with no way to tell what they were or where to buy them. The idea is a "Shazam for clothes": take a photo of a fashion item and get back a real match.',
+        'I built FitClassifier after one too many Pinterest scrolls: I kept finding unique fashion pieces with no way to tell what they were or where to buy them. The idea is a "Shazam for clothes": take a photo of a fashion item and get back a real match.',
         'Traditional fashion discovery relies on manual searching and browsing, which is slow and often turns up nothing. FitClassifier detects the item in a photo with a YOLOv8 model, describes it with CLIP, and looks up similar products with a FAISS vector search, so it can surface recommendations without knowing the brand or product name up front.',
       ],
     },
@@ -53,7 +53,7 @@ export const fitclassifier: ProjectDetail = {
       type: 'text',
       heading: 'Under the hood',
       paragraphs: [
-        'A custom-trained YOLOv8 model detects fashion items in the uploaded photo. It was trained on a diverse clothing dataset, tuned for speed and accuracy on consumer hardware rather than a GPU server.',
+        'A custom-trained YOLOv8 model detects fashion items in the uploaded photo. It was trained on a diverse clothing dataset, tuned for speed and accuracy on consumer hardware.',
         "OpenAI's CLIP model turns each detected item into a detailed, human-readable description, which is what lets the search work from an image instead of typed keywords.",
         'A FAISS (Facebook AI Similarity Search) index compares those descriptions against millions of product embeddings to find close matches in real time.',
         'The whole backend runs in a Docker container on Google Cloud Platform, with Firestore handling storage and retrieval.',

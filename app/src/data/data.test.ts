@@ -60,7 +60,7 @@ test('16 skills present', () => {
 });
 
 test('site constants', () => {
-  expect(site.email).toBe('dvthomas@mit.edu');
+  expect(site.email).toBe('damithomas03@gmail.com');
   expect(site.github).toBe('https://github.com/dvthomas01');
   expect(site.cvFile).toBe('Dami_Thomas_CV_Labs.pdf');
 });
