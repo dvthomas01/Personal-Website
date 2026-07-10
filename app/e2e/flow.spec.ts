@@ -43,3 +43,22 @@ test('prerendered projects HTML contains real content', async ({ request }) => {
   const body = await res.text();
   expect(body).toContain('PS70 Portfolio');
 });
+
+test('project card opens the in-app detail page', async ({ page }) => {
+  await page.goto('./projects/');
+  await page.getByRole('link', { name: /Autonomous Navigation Robot/ }).first().click();
+  await expect(page).toHaveURL(/\/projects\/autobot/);
+  await expect(page.getByRole('heading', { name: 'Autonomous Navigation Robot' })).toBeVisible();
+  await expect(page.getByText(/bang-bang control/i)).toBeVisible();
+});
+
+test('prerendered detail HTML contains real content', async ({ request }) => {
+  const res = await request.get('/Personal-Website/projects/fitclassifier/');
+  expect(await res.text()).toContain('FitClassifier');
+});
+
+test('detail gallery opens the lightbox', async ({ page }) => {
+  await page.goto('./projects/fitclassifier/');
+  await page.locator('main button:has(img)').first().click();
+  await expect(page.getByRole('dialog', { name: 'Photo viewer' })).toBeVisible();
+});
